@@ -34,3 +34,18 @@ El objeto `Correos` es la abstracción del correo a imprimir en el PDF. Este cue
 - **remplazarEtiquetas()**: Esta función recibirá un objeto tipo `lectorCSV` y un índice. Llamará a la función `obtenerEtiqueta()` y el string devuelto será utilizado en un nuevo string Template, donde se reemplazará la etiqueta con su valor correspondiente.
 
 - **generarCorreo()**: Esta función recibe un índice `int` y crea un objeto de la clase `lectorCSV`. Utilizará las funciones `obtenerTemplate()`, `extraerEtiquetaDelTemplate()`, `obtenerEncabezados()` y `remplazarEtiquetas()`, mediante ciclos y variables string, para devolver un string con el correo que contiene las etiquetas con la información correcta.
+
+# Clase: lectorCSV
+
+El objeto `lectorCSV` se encarga de la lectura y procesamiento de archivos CSV. Está diseñado para extraer encabezados y etiquetas desde un archivo CSV que se utilizarán en la generación de correos.
+
+## Campos
+
+- **encabezadoEtiquetas**: Recibe un `ArrayList<String>`, y por cada `String` buscará su valor y posición en el CSV. Después lo almacenará en `Etiquetas`. Si no encuentra el valor, añadirá al `ArrayList` un `null` y soltará un mensaje de error.
+
+## Métodos
+
+- **obtenerEncabezados()**: Extrae los encabezados del archivo CSV y los envía a `generarCorreo()`.
+
+- **obtenerEtiquetaCSV()**: Recibe un valor `int` que corresponde a la fila, y busca la información en el valor de las columnas que están almacenadas en `encabezadoEtiquetas`.
+
