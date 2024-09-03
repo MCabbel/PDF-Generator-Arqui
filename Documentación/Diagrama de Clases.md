@@ -34,3 +34,44 @@ El objeto `Correos` es la abstracción del correo a imprimir en el PDF. Este cue
 - **remplazarEtiquetas()**: Esta función recibirá un objeto tipo `lectorCSV` y un índice. Llamará a la función `obtenerEtiqueta()` y el string devuelto será utilizado en un nuevo string Template, donde se reemplazará la etiqueta con su valor correspondiente.
 
 - **generarCorreo()**: Esta función recibe un índice `int` y crea un objeto de la clase `lectorCSV`. Utilizará las funciones `obtenerTemplate()`, `extraerEtiquetaDelTemplate()`, `obtenerEncabezados()` y `remplazarEtiquetas()`, mediante ciclos y variables string, para devolver un string con el correo que contiene las etiquetas con la información correcta.
+
+# Objeto PDF
+
+El objeto **PDF** es responsable de generar y gestionar la salida en formato PDF. Contiene los métodos necesarios para crear un documento PDF a partir de los correos generados y realizar las impresiones correspondientes.
+
+## Campos
+
+- **obj correos**: Objeto de la clase `Correos` que contiene los datos y funciones para generar el contenido del PDF.
+- **destinoPDF**: Variable de tipo `String` que almacena la ruta donde se guardará el archivo PDF.
+
+## Métodos
+
+- **generarPDF()**: Genera el archivo PDF utilizando los datos del objeto `correos`.
+- **imprimirCorreo()**: Imprime el correo generado en formato PDF en la ubicación especificada por `destinoPDF`.
+
+
+# Clase: lectorCSV
+
+El objeto `lectorCSV` se encarga de la lectura y procesamiento de archivos CSV. Está diseñado para extraer encabezados y etiquetas desde un archivo CSV que se utilizarán en la generación de correos.
+
+## Campos
+
+- **encabezadoEtiquetas**: Recibe un `ArrayList<String>`, y por cada `String` buscará su valor y posición en el CSV. Después lo almacenará en `Etiquetas`. Si no encuentra el valor, añadirá al `ArrayList` un `null` y soltará un mensaje de error.
+
+## Métodos
+
+- **obtenerEncabezados()**: Extrae los encabezados del archivo CSV y los envía a `generarCorreo()`.
+
+- **obtenerEtiquetaCSV()**: Recibe un valor `int` que corresponde a la fila, y busca la información en el valor de las columnas que están almacenadas en `encabezadoEtiquetas`.
+
+# Objeto txt Reader
+
+El objeto **txt Reader** es responsable de leer y extraer datos de archivos de texto plano (.txt). Este objeto facilita la lectura de archivos y la extracción de información para su procesamiento.
+
+## Campos
+
+- **rutaArchivoTXT**: Variable de tipo `String` que almacena la ruta del archivo de texto que será leído.
+
+## Métodos
+
+- **extraerTxt()**: Lee el archivo de texto especificado por `rutaArchivoTXT` y lo devuelve como `String`.
