@@ -60,7 +60,7 @@ El objeto `lectorCSV` se encarga de la lectura y procesamiento de archivos CSV. 
 
 ## Métodos
 
-- **obtenerEncabezados()**: Extrae los encabezados del archivo CSV y los envía a `generarCorreo()`.
+- **obtenerEncabezados()**: Recibe una arrayList de strings y los busca como encabezado en el CSV, si encuentra guarda la poscion en encabezadoEtiquetas()`.
 
 - **obtenerEtiquetaCSV()**: Recibe un valor `int` que corresponde a la fila, y busca la información en el valor de las columnas que están almacenadas en `encabezadoEtiquetas`.
 
