@@ -1,0 +1,27 @@
+// Excepción para problemas relacionados con el template
+public class TemplateParsingException extends Exception {
+    public TemplateParsingException(String message) {
+        super(message);
+    }
+}
+
+// Excepción para problemas con el archivo CSV
+public class CsvFileException extends Exception {
+    public CsvFileException(String message) {
+        super(message);
+    }
+}
+
+// Excepción para problemas de validación del template
+public class TemplateValidationException extends Exception {
+    public TemplateValidationException(String message) {
+        super(message);
+    }
+}
+
+// Excepción para problemas con los datos en el archivo CSV
+public class DataValidationException extends Exception {
+    public DataValidationException(String message) {
+        super(message);
+    }
+}
